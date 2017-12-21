@@ -10,14 +10,18 @@ android {
         applicationId "com.litmon.app.mochoviewer"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
+        versionCode 2
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    apply from: "${project.projectDir}/signingConfigs/release.gradle", to: android
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }
